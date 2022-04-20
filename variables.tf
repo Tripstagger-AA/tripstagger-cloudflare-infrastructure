@@ -16,5 +16,5 @@ variable "organization" {
 
 variable "cert_days" {
   type    = number
-  default = 1000
+  default = 1095 
 }
