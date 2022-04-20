@@ -9,5 +9,6 @@ terraform {
 
 provider "cloudflare" {
   email = var.login_email
-  token = var.login_key
+  api_key = var.login_key
+  api_hostname = var.host_name
 }
