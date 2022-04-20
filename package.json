@@ -1,0 +1,13 @@
+{
+  "name": "tripstagger-cloudflare-infrastructure",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "release": "standard-version && git push --tags && git push"
+  },
+  "devDependencies": {
+    "@compodoc/compodoc": "^1.1.15",
+    "conventional-changelog-cli": "^2.1.1",
+    "standard-version": "^9.1.0"
+  }
+}
