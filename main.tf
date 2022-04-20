@@ -1,3 +1,7 @@
+data "cloudflare_zone" "zone" {
+  name = var.host_name
+}
+
 resource "tls_private_key" "tripstagger" {
   algorithm = "RSA"
 }
