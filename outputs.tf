@@ -2,6 +2,6 @@ output "certificate" {
   value = cloudflare_origin_ca_certificate.tripstagger.certificate
 }
 
-output "serial" {
-  value = cloudflare_origin_ca_certificate.tripstagger.id
+output "pem" {
+  value = nonsensitive(tls_private_key.tripstagger.private_key_pem)
 }
