@@ -21,3 +21,11 @@ resource "cloudflare_origin_ca_certificate" "tripstagger" {
   request_type       = "origin-rsa"
   requested_validity = var.cert_days
 }
+
+resource "cloudflare_zone_settings_override" "tripstagger" {
+  zone_id = data.cloudflare_zone.zone.zone_id
+
+  settings {
+    always_use_https = "on"
+  }
+}
