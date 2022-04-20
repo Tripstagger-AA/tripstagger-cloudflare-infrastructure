@@ -2,6 +2,6 @@ variable "login_email" {
   type = string
 }
 
-variable "login_token" {
+variable "login_key" {
   type = string
 }
