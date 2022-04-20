@@ -7,14 +7,14 @@ variable "login_key" {
 }
 
 variable "host_name" {
-   type = string 
+  type = string
 }
 
 variable "organization" {
-    type = string 
+  type = string
 }
 
 variable "cert_days" {
-  type = number
+  type    = number
   default = 1000
 }

@@ -11,9 +11,9 @@ resource "tls_cert_request" "tripstagger" {
   }
 }
 
-resource "cloudflare_origin_ca_certificate" "example" {
-  csr                = tls_cert_request.example.cert_request_pem
-  hostnames          = [ var.host_name, "*.${var.host_name}" ]
+resource "cloudflare_origin_ca_certificate" "tripstagger" {
+  csr                = tls_cert_request.tripstagger.cert_request_pem
+  hostnames          = [var.host_name, "*.${var.host_name}"]
   request_type       = "origin-rsa"
   requested_validity = var.cert_days
 }
