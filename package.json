@@ -1,6 +1,6 @@
 {
   "name": "tripstagger-cloudflare-infrastructure",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "release@patch": "standard-version --release-as patch && git push --tags && git push",
