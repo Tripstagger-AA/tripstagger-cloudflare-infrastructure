@@ -33,12 +33,13 @@ resource "cloudflare_zone_settings_override" "tripstagger" {
 
 
 module "dnsrecod" {
-  depends_on        = [cloudflare_origin_ca_certificate.tripstagger]
   source            = "./dnsrecord"
-  for_each          = local.dns_names
+  count             = local.dns_names.count
   server_ip_address = var.server_ip_address
-  dns_name          = each.value
+  dns_name          = local.dns_names[count.index]
   host_name         = var.host_name
+  subdomain         = local.subdomains[count.index]
+  zone_id           = data.cloudflare_zone.zone.zone_id
   providers = {
     cloudflare = cloudflare
   }

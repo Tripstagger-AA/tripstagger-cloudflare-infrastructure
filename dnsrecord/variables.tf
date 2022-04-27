@@ -9,3 +9,11 @@ variable "dns_name" {
 variable "host_name" {
   type = string
 }
+
+variable "zone_id" {
+  type = string
+}
+
+variable "subdomain" {
+  type = string
+}
