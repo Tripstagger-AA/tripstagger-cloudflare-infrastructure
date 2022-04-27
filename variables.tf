@@ -14,3 +14,8 @@ variable "cert_days" {
 variable "server_ip_address" {
   type = string
 }
+
+variable "subdomains" {
+  type    = list(string)
+  default = []
+}

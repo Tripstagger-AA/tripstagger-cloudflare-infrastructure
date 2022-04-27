@@ -32,20 +32,14 @@ resource "cloudflare_zone_settings_override" "tripstagger" {
 }
 
 
-resource "cloudflare_record" "root" {
-  zone_id = data.cloudflare_zone.zone.zone_id
-  name    = var.host_name
-  value   = var.server_ip_address
-  type    = "A"
-  ttl     = 1
-  proxied = true
-}
-
-resource "cloudflare_record" "www" {
-  zone_id = data.cloudflare_zone.zone.zone_id
-  name    = "www"
-  value   = var.host_name
-  type    = "CNAME"
-  ttl     = 1
-  proxied = true
+module "dnsrecod" {
+  depends_on        = [cloudflare_origin_ca_certificate.tripstagger]
+  source            = "./dnsrecord"
+  for_each          = local.dns_names
+  server_ip_address = var.server_ip_address
+  dns_name          = each.value
+  host_name         = var.host_name
+  providers = {
+    cloudflare = cloudflare
+  }
 }
