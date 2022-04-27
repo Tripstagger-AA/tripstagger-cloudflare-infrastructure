@@ -2,7 +2,7 @@
 
 resource "cloudflare_record" "root" {
   zone_id = var.zone_id
-  name    = var.host_name
+  name    = var.dns_name
   value   = var.server_ip_address
   type    = "A"
   ttl     = 1
@@ -12,7 +12,7 @@ resource "cloudflare_record" "root" {
 resource "cloudflare_record" "www" {
   zone_id = var.zone_id
   name    = var.subdomain != null ? "www.${var.subdomain}" : "www"
-  value   = var.host_name
+  value   = var.dns_name
   type    = "CNAME"
   ttl     = 1
   proxied = true
