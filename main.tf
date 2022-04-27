@@ -27,5 +27,6 @@ resource "cloudflare_zone_settings_override" "tripstagger" {
 
   settings {
     always_use_https = "on"
+    ssl              = "full"
   }
 }
